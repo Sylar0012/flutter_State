@@ -10,20 +10,25 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      home: Row(
+        children: [
+          Expanded(child: ABPage()),
+          Expanded(child: CComponent()),
+        ],
+      ),
     );
   }
 }
 
 // 화면
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class ABPage extends StatefulWidget {
+  const ABPage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<ABPage> createState() => _ABPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _ABPageState extends State<ABPage> {
   int num = 1;
 
   void Increase() {
@@ -74,6 +79,17 @@ class AComponent extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+}
+
+class CComponent extends StatelessWidget {
+  const CComponent({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.cyan,
     );
   }
 }
